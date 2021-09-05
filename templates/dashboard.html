@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  {% if name %}
+    <h1 class="title is-size-1">Welcome {{ name }}!!</h1>
+  {% else %}
+    <h1 class="title is-size-1">Hello Stranger!!</h1>
+  {% endif %}
+{% endblock %}

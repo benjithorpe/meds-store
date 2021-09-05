@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <form method="POST">
+    {{ signup_form.hidden_tag() }}
+    <div class="field">
+      {{ signup_form.fullname.label(class="label") }}
+      <div class="control">
+        {{ signup_form.fullname(class="input", placeholder="Enter a Name") }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ signup_form.username.label(class="label") }}
+      <div class="control">
+        {{ signup_form.username(class="input", placeholder="Enter a Username") }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ signup_form.email.label(class="label") }}
+      <div class="control">
+        {{ signup_form.email(class="input", placeholder="Enter Email address", type="email") }}
+      </div>
+    </div>
+
+    <div class="field">
+      {{ signup_form.password.label(class="label") }}
+      <div class="control">
+        {{ signup_form.password(class="input", placeholder="Enter a Strong Password") }}
+      </div>
+    </div>
+
+    <div class="control">{{ signup_form.signup_btn(class="button is-info") }}</div>
+  </form>
+{% endblock %}

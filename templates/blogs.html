@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+  <section class="columns is-flex-wrap-wrap is-multiline">
+    {% for i in range(5) %}
+      <div class="column is-half has-border">
+        <h2 class="title is-size-5"><a href="#">A blog title here.</a></h2>
+        <h3 class="subtitle is-size-7 is-italic mb-3">by John Doe, 12-12-2021</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo eveniet cupiditate
+          soluta assumenda ullam sequi esse dignissimos. Quas officia optio cupiditate error
+          deleniti earum, omnis facere sint praesentium corrupti...<a href="#">Read more</a></p>
+      </div>
+    {% endfor %}
+  </section>
+{% endblock %}
