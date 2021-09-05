@@ -10,11 +10,12 @@
 </head>
 <body>
   <!-- This will display a flash message if available -->
-  <div class="container">
-    <div class="notification is-warning">
-      This container is <strong>centered</strong> on desktop and larger viewports.
+  {% for category, message in get_flashed_messages(with_categories=True) %}
+    <div class="notification is-{{ category }} is-light">
+      <button class="delete"></button>
+      {{ message }}
     </div>
-  </div>
+  {% endfor %}
   <!-- End of flash message display -->
 
   <nav class="navbar" role="navigation" aria-label="main navigation">

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, flash
 
 from forms import LoginForm, SignupForm
 import user
@@ -25,13 +25,15 @@ def dashboard():
 @app.route("/login", methods=["POST", "GET"])
 def login():
     login_form = LoginForm()
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        password = login_form.password.data
+    username = login_form.username.data
+    password = login_form.password.data
 
-        if username == user.default_username \
-                        and password == user.default_password:
-            return redirect(url_for("dashboard"))
+    if login_form.validate_on_submit():
+        if username == user.default_username\
+                and password == user.default_password:
+            flash(f"Access Granted!! Welcome {username}.", "success")
+            return redirect(url_for("login"))
+
     return render_template("login.html", login_form=login_form)
 
 
