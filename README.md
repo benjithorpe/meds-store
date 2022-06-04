@@ -1,10 +1,9 @@
-# puny
-A simple small blog application built with the Flask framework.
-
+# Meds-store
+An emulation of a pharmacy inventory store
 
 ## Clone project
-`git clone https://github.com/benjithorpe/puny.git`
+`git clone https://github.com/benjithorpe/meds-store.git`
 
 
 ## install requirements
-`pip3 install requirements.txt`
+`npm install`
