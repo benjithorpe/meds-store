@@ -31,7 +31,6 @@ export const POST = async ({ request }) => {
 
 	// Set a unique cookie id to use
 	const cookieId = user.id;
-	console.log(user);
 	return {
 		status: 201,
 		headers: {
