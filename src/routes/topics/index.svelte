@@ -1,17 +1,40 @@
+<script context="module">
+	export const load = async ({ session, fetch }) => {
+		// Redirect to login page, if user is not in the session
+		if (!session.user) {
+			return {
+				status: 302,
+				redirect: '/auth/login'
+			};
+		}
+
+		const res = await fetch('/api/topics');
+		const topics = await res.json();
+
+		if (res.ok) {
+			return {
+				props: {
+					topics
+				}
+			};
+		}
+	};
+</script>
+
 <script>
-	import { topics } from '../../lib/store.js';
+	export let topics;
 </script>
 
 <article>
-	<h1 class="text-gray-700 text-2xl mb-3">Topics:</h1>
+	<h1 class="mb-3 text-2xl text-gray-700">Topics:</h1>
 
 	<!-- Add new entry link -->
-	<a href="/topics/new-topic" class="underline mb-3 block">Add New Topic</a>
+	<a href="/topics/new-topic" class="mb-3 block underline">Add New Topic</a>
 
-	<ul class="indent-10 grid gap-3">
-		{#each $topics as topic (topic.id)}
-			<li class="text-gray-700 list-inside list-disc">
-				<a href="/topics/{topic.id}" class="hover:underline hover:text-blue-900">{topic.name}</a>
+	<ul class="grid gap-3 indent-10">
+		{#each topics as topic (topic.id)}
+			<li class="list-inside list-disc text-gray-700">
+				<a href="/topics/{topic.id}" class="hover:text-blue-900 hover:underline">{topic.text}</a>
 			</li>
 		{:else}
 			<li class="text-gray-600">No topics has been added yet.</li>

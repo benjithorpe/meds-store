@@ -1,42 +1,41 @@
 <script context="module">
-	export const load = async ({ params }) => {
-		const topic = params.topic_id;
+	export const load = async ({ fetch, params }) => {
+		const res = await fetch(`/api/topics/${params.topic_id}`);
+		const data = await res.json();
 
-		return {
-			props: {
-				topic
-			}
-		};
+		if (res.ok) {
+			return {
+				props: {
+					topic: data
+				}
+			};
+		}
 	};
 </script>
 
 <script>
-	import { topics } from '../../lib/store.js';
 	export let topic;
-
-	// The 2 is hardcoded for now, we will use a database later for more dynamic content
-	let topicToDisplay = $topics.find((item) => item.id === 1);
 </script>
 
 <article>
-	<h1 class="text-gray-700 text-3xl mb-5">Topic: {topic} &mdash; {topicToDisplay.name}</h1>
+	<h1 class="mb-5 text-3xl text-gray-700">Topic: {topic.text}</h1>
 
-	<h2 class="text-gray-700 text-xl mb-3">Entries:</h2>
+	<h2 class="mb-3 text-xl text-gray-700">Entries:</h2>
 
 	<!-- Add new entry link -->
 	<a href="/topics/entry/new-entry" class="underline">Add New Entry</a>
 
 	<!-- list all entries for this topic -->
-	<ul class="indent-10 grid gap-7">
-		{#each topicToDisplay.entries as entry}
+	<ul class="grid gap-7 indent-10">
+		{#each topic.entries as entry}
 			<li class="border-b p-2">
-				<h3 class="text-gray-500 font-light mb-2">&mdash; {entry.dateAdded}</h3>
+				<h3 class="mb-2 font-light text-gray-500">&mdash; {entry.dateAdded}</h3>
 				<p>{entry.text}</p>
 
 				<!-- link to edit entry -->
 				<a
 					href="/topics/entry/edit-entry"
-					class="underline mt-2 block text-sm text-blue-700 font-sans">Edit Entry</a
+					class="mt-2 block font-sans text-sm text-blue-700 underline">Edit Entry</a
 				>
 			</li>
 		{:else}
