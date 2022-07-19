@@ -33,7 +33,7 @@ export const POST = async ({ request }) => {
 	const cookieId = user.id;
 	console.log(user);
 	return {
-		status: 200,
+		status: 201,
 		headers: {
 			'Set-Cookie': cookie.serialize('session', cookieId, {
 				httpOnly: true,

@@ -11,8 +11,6 @@
 </script>
 
 <script>
-	import { goto } from '$app/navigation';
-
 	let username = '';
 	let password = '';
 	let errorMsg = '';
@@ -25,7 +23,10 @@
 		});
 		const data = await res.json();
 
-		if (res.ok) goto('/topics');
+		if (res.ok) {
+			window.location.href = '/topics';
+			return;
+		}
 
 		errorMsg = data.message;
 		// reset form element
@@ -43,7 +44,7 @@
 				<input
 					type="text"
 					name="username"
-					class="block py-2 px-4 border"
+					class="block border py-2 px-4"
 					placeholder="john"
 					bind:value={username}
 				/>
@@ -54,7 +55,7 @@
 				<input
 					type="password"
 					name="password"
-					class="block py-2 px-4 border"
+					class="block border py-2 px-4"
 					placeholder="password"
 					bind:value={password}
 				/>
@@ -64,7 +65,7 @@
 				<p class="text-sm text-red-500">{errorMsg}</p>
 			{/if}
 
-			<button type="submit" class="bg-gray-800 rounded-md block w-fit px-4 py-2 text-white">
+			<button type="submit" class="block w-fit rounded-md bg-gray-800 px-4 py-2 text-white">
 				Login
 			</button>
 		</fieldset>

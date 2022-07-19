@@ -18,19 +18,23 @@ export const handle = async ({ event, resolve }) => {
 	});
 
 	if (user) {
-		event.locals.user = { username: user.username };
+		event.locals.user = {
+			username: user.username,
+			id: cookies.session
+		};
 	}
 
 	return await resolve(event);
 };
 
+/** @type {import('@sveltejs/kit').GetSession} */
 export const getSession = ({ locals }) => {
 	// Return if user does not exists
 	if (!locals.user) return {};
 
 	return {
 		user: {
-			username: locals.user.username
+			username: locals.user
 		}
 	};
 };
