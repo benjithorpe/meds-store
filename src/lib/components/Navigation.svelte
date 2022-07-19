@@ -1,5 +1,5 @@
 <script>
-	import { isAuthenticated } from '../store.js';
+	import { session } from '$app/stores';
 </script>
 
 <header class="sticky top-0 mb-5">
@@ -10,7 +10,7 @@
 		<!-- Menu Items -->
 		<div class="flex gap-5">
 			<a href="/" class="font-sans text-blue-600 hover:underline">Home</a>
-			{#if $isAuthenticated}
+			{#if $session.user}
 				<a href="/topics" class="font-sans text-blue-600 hover:underline">Topics</a>
 				<a href="/api/auth/logout" class="font-sans text-blue-600 hover:underline">logout</a>
 			{:else}
