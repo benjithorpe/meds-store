@@ -1,1 +1,4 @@
-// Handles the logout and redirects the user back to home page
+export const GET = async ({ locals }) => {
+	console.log(locals);
+	return {};
+};
