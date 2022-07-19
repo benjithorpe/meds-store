@@ -1,3 +1,31 @@
+<script context="module">
+	export const load = async ({ fetch, session }) => {
+		// Redirect to login page, if user is not in the session
+		// if (!session.user) {
+		// 	return {
+		// 		status: 302,
+		// 		redirect: '/'
+		// 	};
+		// }
+		console.log(session);
+
+		return {};
+		// const res = await fetch('/api/topics');
+		// const data = await res.json();
+		// console.log(data);
+
+		// if (res.ok) {
+		// 	console.log(data);
+		// }
+
+		// return {
+		// 	props: {
+		// 		topics: data
+		// 	}
+		// };
+	};
+</script>
+
 <script>
 	import { topics } from '../../lib/store.js';
 </script>
