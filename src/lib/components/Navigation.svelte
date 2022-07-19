@@ -12,7 +12,7 @@
 			<a href="/" class="font-sans text-blue-600 hover:underline">Home</a>
 			{#if $isAuthenticated}
 				<a href="/topics" class="font-sans text-blue-600 hover:underline">Topics</a>
-				<a href="/api/logout" class="font-sans text-blue-600 hover:underline">logout</a>
+				<a href="/api/auth/logout" class="font-sans text-blue-600 hover:underline">logout</a>
 			{:else}
 				<a href="/auth/login" class="font-sans text-blue-600 hover:underline">Login</a>
 				<a href="/auth/register" class="font-sans text-blue-600 hover:underline">Register</a>
