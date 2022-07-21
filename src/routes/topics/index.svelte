@@ -29,12 +29,16 @@
 	<h1 class="mb-3 text-2xl text-gray-700">Topics:</h1>
 
 	<!-- Add new entry link -->
-	<a href="/topics/new-topic" class="mb-5 block text-blue-800 underline">Add New Topic</a>
+	<a href="/topics/new-topic" class="mb-5 block text-blue-800 underline" sveltekit:prefetch>
+		Add New Topic
+	</a>
 
 	<ul class="grid gap-3 indent-10">
 		{#each topics as topic (topic.id)}
 			<li class="list-inside list-disc text-gray-700">
-				<a href="/topics/{topic.id}" class="hover:text-blue-900 hover:underline">{topic.text}</a>
+				<a href="/topics/{topic.id}" class="hover:text-blue-900 hover:underline" sveltekit:prefetch>
+					{topic.text}
+				</a>
 			</li>
 		{:else}
 			<li class="text-gray-600">No topics has been added yet.</li>

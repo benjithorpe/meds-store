@@ -6,7 +6,11 @@ export const GET = async ({ params }) => {
 			id: params.topic_id
 		},
 		include: {
-			entries: true
+			entries: {
+				orderBy: {
+					dateAdded: 'desc'
+				}
+			}
 		}
 	});
 

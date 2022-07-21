@@ -7,6 +7,9 @@ export const GET = async ({ locals }) => {
 		},
 		include: {
 			topics: {
+				orderBy: {
+					dateAdded: 'desc'
+				},
 				include: {
 					entries: true
 				}
