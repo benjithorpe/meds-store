@@ -29,7 +29,7 @@
 	<h1 class="mb-3 text-2xl text-gray-700">Topics:</h1>
 
 	<!-- Add new entry link -->
-	<a href="/topics/new-topic" class="mb-3 block underline">Add New Topic</a>
+	<a href="/topics/new-topic" class="mb-5 block text-blue-800 underline">Add New Topic</a>
 
 	<ul class="grid gap-3 indent-10">
 		{#each topics as topic (topic.id)}
