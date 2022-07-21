@@ -23,7 +23,7 @@
 	<h2 class="mb-3 text-xl text-gray-700">Entries:</h2>
 
 	<!-- Add new entry link -->
-	<a href="/topics/entry/new-entry" class="underline">Add New Entry</a>
+	<a href="/topics/entry/new-entry" class="mb-5 block text-blue-800 underline">Add New Entry</a>
 
 	<!-- list all entries for this topic -->
 	<ul class="grid gap-7 indent-10">
